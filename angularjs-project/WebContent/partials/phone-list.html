@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-3">
+		<!--Sidebar content-->
+
+		Search:
+		<input
+			ng-model="query"
+			class="form-control input-sm">
+		Sort by:
+		<select
+			ng-model="orderProp"
+			class="form-control input-sm">
+			<option value="name">Alphabetical</option>
+			<option value="age">Newest</option>
+		</select>
+
+	</div>
+	<div class="col-md-8">
+		<!--Body content-->
+
+		<div
+			class="media"
+			ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+			<a
+				class="pull-left"
+				href="#/phones/{{phone.id}}">
+				<img
+					class="media-object"
+					style="height: 64px; width: 64px;"
+					ng-src="{{phone.imageUrl}}">
+			</a>
+
+			<div class="media-body">
+				<h4 class="media-heading">
+					<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+				</h4>
+				{{phone.snippet}}
+			</div>
+		</div>
+
+	</div>
+</div>

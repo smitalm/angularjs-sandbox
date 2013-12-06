@@ -1,0 +1,160 @@
+<h3>{{phone.name}}</h3>
+<div class="row">
+	<div class="col-md-7">
+		<div class="phone-images">
+			<img
+				ng-src="{{img}}"
+				class="phone"
+				ng-repeat="img in phone.images"
+				ng-class="{active: mainImageUrl==img}">
+		</div>
+		<ul class="phone-thumbs">
+			<li ng-repeat="img in phone.images">
+				<img
+					ng-src="{{img}}"
+					ng-click="setImage(img)">
+			</li>
+		</ul>
+		<p>{{phone.description}}</p>
+
+	</div>
+	<div class="col-md-5">
+		<div class="list-group">
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Availability and Networks</h4>
+				<div class="list-group-item-text">
+					<div ng-repeat="availability in phone.availability">{{availability}}</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Battery</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>Type: </b>{{phone.battery.type}}
+					</div>
+					<div>
+						<b>Talk Time: </b>{{phone.battery.talkTime}}
+					</div>
+					<div>
+						<b>Standby time (max): </b>{{phone.battery.standbyTime}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Storage and Memory</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>RAM: </b>{{phone.storage.ram}}
+					</div>
+					<div>
+						<b>Internal Storage: </b>{{phone.storage.flash}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Connectivity</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>Network Support: </b>{{phone.connectivity.cell}}
+					</div>
+					<div>
+						<b>WiFi: </b>{{phone.connectivity.wifi}}
+					</div>
+					<div>
+						<b>Bluetooth: </b>{{phone.connectivity.bluetooth}}
+					</div>
+					<div>
+						<b>Infrared: </b>{{phone.connectivity.infrared | checkmark}}
+					</div>
+					<div>
+						<b>GPS: </b>{{phone.connectivity.gps | checkmark}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Android</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>OS Version: </b>{{phone.android.os}}
+					</div>
+					<div>
+						<b>UI: </b>{{phone.android.ui}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Size and Weight</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>Dimensions: </b>
+						<span ng-repeat="dim in phone.sizeAndWeight.dimensions">{{dim}}, </span>
+					</div>
+					<div>
+						<b>Weight: </b>{{phone.sizeAndWeight.weight}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Display</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>Screen size: </b>{{phone.display.screenSize}}
+					</div>
+					<div>
+						<b>Screen resolution: </b>{{phone.display.screenResolution}}
+					</div>
+					<div>
+						<b>Touch screen: </b>{{phone.display.touchScreen | checkmark}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Hardware</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>CPU: </b>{{phone.hardware.cpu}}
+					</div>
+					<div>
+						<b>USB: </b>{{phone.hardware.usb}}
+					</div>
+					<div>
+						<b>Audio: </b>{{phone.hardware.audioJack}}
+					</div>
+					<div>
+						<b>FM Radio: </b>{{phone.hardware.fmRadio | checkmark}}
+					</div>
+					<div>
+						<b>Accelerometer: </b>{{phone.hardware.accelerometer | checkmark}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Camera</h4>
+				<div class="list-group-item-text">
+					<div>
+						<b>Primary: </b>{{phone.camera.primary}}
+					</div>
+					<div>
+						<b>Features: </b>{{phone.camera.features.join(', ')}}
+					</div>
+				</div>
+			</div>
+
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Additional Features</h4>
+				<div class="list-group-item-text">{{phone.additionalFeatures}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
